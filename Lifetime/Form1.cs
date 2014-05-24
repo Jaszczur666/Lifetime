@@ -22,6 +22,9 @@ namespace Lifetime
             String fake="";
             DecayCurve d = new DecayCurve();
             d.LoadFromFile(fake);
+            foreach (Datapoint point in d.DataPoints) {
+                chart1.Series[0].Points.AddXY(point.t,point.y);
+            } 
         }
     }
 }
