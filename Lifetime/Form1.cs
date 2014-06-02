@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
 namespace Lifetime
 {
     
@@ -22,8 +21,10 @@ namespace Lifetime
             String fake="";
             DecayCurve d = new DecayCurve();
             d.LoadFromFile(fake);
+            d.Normalize();
+            chart1.Series[0].Points.Clear();
             foreach (Datapoint point in d.DataPoints) {
-                chart1.Series[0].Points.AddXY(point.t,point.y);
+                if (point.y !=0)chart1.Series[0].Points.AddXY(1e6*point.t,Math.Log10(point.y));
             } 
         }
     }
