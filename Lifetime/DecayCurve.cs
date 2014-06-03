@@ -49,14 +49,19 @@ namespace Lifetime
             double min, max;
             min = DataPoints[0].y;
             max = DataPoints[0].y;
+            int i = 0;
             foreach (Datapoint point in DataPoints)
             {
-                if (min > point.y) min = point.y;
-                if (max < point.y) max = point.y;
+                i++;
+                if (min > point.y && (i>1100)) min = point.y;
+                if ((max < point.y)&&(i>1100)) max = point.y;
             }
             Console.WriteLine(max+" "+min);
+            double toffset;
+            toffset = DataPoints[1100].t;
             foreach (Datapoint point in DataPoints)
             {
+                point.t -= toffset;
                 point.y =Math.Abs((point.y - min) / (max-min));
             }
         }
@@ -66,7 +71,7 @@ namespace Lifetime
             int i = 0;
             foreach (Datapoint point in DataPoints) {
                 i++;
-                if (i>1000) value += Math.Pow(Residue(point.t, point.y, y0, tau, A),2);
+                if (i>1100) value += Math.Pow(Residue(point.t, point.y, y0, tau, A),2);
             }
             return value;
         

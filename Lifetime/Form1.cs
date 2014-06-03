@@ -25,7 +25,7 @@ namespace Lifetime
             d.Normalize();
             chart1.Series[0].Points.Clear();
             foreach (Datapoint point in d.DataPoints) {
-                if (point.y !=0)chart1.Series[0].Points.AddXY(1e6*point.t,Math.Log10(point.y));
+                if ((point.y !=0) && (point.t>0))chart1.Series[0].Points.AddXY(1e6*point.t,Math.Log10(point.y));
             } 
         }
 
@@ -41,8 +41,8 @@ namespace Lifetime
             foreach (Datapoint point in d.DataPoints)
             {
                 i++;
-                if (i>1000) chart1.Series[1].Points.AddXY(1e6 * point.t,Math.Log10( y0 + A * Math.Exp(-1e6*point.t / tau)));
-                if (i > 1000) chart1.Series[2].Points.AddXY(1e6 * point.t, d.Residue(point.t, point.y, y0, tau, A));
+                if (i>1100) chart1.Series[1].Points.AddXY(1e6 * point.t,Math.Log10( y0 + A * Math.Exp(-1e6*point.t / tau)));
+                if (i > 1100) chart1.Series[2].Points.AddXY(1e6 * point.t, Math.Log10(d.Residue(point.t, point.y, y0, tau, A)));
             }
             label1.Text = d.Chi2(y0, tau, A)+"";
         }
