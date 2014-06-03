@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MathNet.Numerics.LinearAlgebra.Double;
 namespace Lifetime
 {
     
@@ -19,7 +20,7 @@ namespace Lifetime
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String fake="";
+            String fake = @"g:\dane\t30.CSV";
             d = new DecayCurve();
             d.LoadFromFile(fake);
             d.Normalize();

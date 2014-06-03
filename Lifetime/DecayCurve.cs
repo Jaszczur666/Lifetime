@@ -29,7 +29,7 @@ namespace Lifetime
                 DataPoints = new List<Datapoint>();
             }
             double yv, tv;
-            string[] lines = System.IO.File.ReadAllLines(@"d:\t35.CSV");
+            string[] lines = System.IO.File.ReadAllLines(filename);
 
             foreach (string line in lines)
             {

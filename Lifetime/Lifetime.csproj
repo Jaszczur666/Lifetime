@@ -54,6 +54,7 @@
   <ItemGroup>
     <Reference Include="MathNet.Numerics">
       <HintPath>D:\Programy\mathdotnet\Net40\MathNet.Numerics.dll</HintPath>
+      <HintPath>G:\programy\math.net\Net40\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
