@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 
+
 namespace Lifetime
 {
     class Datapoint
@@ -13,6 +14,9 @@ namespace Lifetime
     }
     class DecayCurve
     {
+        public double Residue(double x, double y, double y0, double tau, double A) {
+            return y-(y0+A*Math.Exp(-1e6*x/tau));
+        }
         public List<Datapoint> DataPoints;
         public void LoadFromFile(String filename)
         {
@@ -55,6 +59,17 @@ namespace Lifetime
             {
                 point.y =Math.Abs((point.y - min) / (max-min));
             }
+        }
+        public double Chi2(double y0,double tau, double A) {
+            double value;
+            value = 0;
+            int i = 0;
+            foreach (Datapoint point in DataPoints) {
+                i++;
+                if (i>1000) value += Math.Pow(Residue(point.t, point.y, y0, tau, A),2);
+            }
+            return value;
+        
         }
     }
 }
