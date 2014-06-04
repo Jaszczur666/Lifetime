@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MathNet.Numerics.LinearAlgebra.Double;
+
 namespace Lifetime
 {
     
@@ -46,6 +46,11 @@ namespace Lifetime
                 if (i > 1100) chart1.Series[2].Points.AddXY(1e6 * point.t, Math.Log10(d.Residue(point.t, point.y, y0, tau, A)));
             }
             label1.Text = d.Chi2(y0, tau, A)+"";
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

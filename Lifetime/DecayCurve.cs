@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Globalization;
+using MathNet.Numerics.LinearAlgebra.Double;
 
 
 namespace Lifetime
@@ -75,6 +76,11 @@ namespace Lifetime
             }
             return value;
         
+        }
+        public DenseMatrix Hessian() { 
+            DenseMatrix Value;
+            Value = DenseMatrix.Create(2, 3,0.0);
+            return Value;
         }
     }
 }
