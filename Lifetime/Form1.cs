@@ -20,7 +20,7 @@ namespace Lifetime
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String fake = @"g:\dane\t30.CSV";
+            String fake = @"d:\t35.CSV";
             d = new DecayCurve();
             d.LoadFromFile(fake);
             d.Normalize();

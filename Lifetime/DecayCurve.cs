@@ -79,7 +79,7 @@ namespace Lifetime
         }
         public DenseMatrix Hessian() { 
             DenseMatrix Value;
-            Value = DenseMatrix.Create(2, 3,0.0);
+            Value = new DenseMatrix(3);
             return Value;
         }
     }
